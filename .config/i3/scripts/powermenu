@@ -29,7 +29,7 @@
 #######################################################################
 
 # Use a custom lock script
-#LOCKSCRIPT="i3lock-extra -m pixelize"
+LOCKSCRIPT="~/.config/i3/scripts/blur-lock"
 
 # Colors: FG (foreground), BG (background), HL (highlighted)
 FG_COLOR="#bbbbbb"
@@ -116,9 +116,9 @@ typeset -A menu
 menu=(
   [ Shutdown]="systemctl poweroff"
   [ Reboot]="systemctl reboot"
-  [ Suspend]="systemctl suspend"
-  [ Hibernate]="systemctl hibernate"
-  [ Lock]="~/.config/i3/scripts/blur-lock"
+  [ Suspend]="systemctl suspend & ${LOCKSCRIPT}"
+  [ Hibernate]="systemctl hibernate & ${LOCKSCRIPT}"
+  [ Lock]="${LOCKSCRIPT}"
   [ Logout]="i3-msg exit"
   [ Cancel]=""
 )
