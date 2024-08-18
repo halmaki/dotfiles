@@ -2,6 +2,8 @@
 fpath=(/opt/homebrew/share/zsh-completions $fpath)
 # zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+## dark mode
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 # zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -13,11 +15,13 @@ alias ll='ls -alG'
 alias cp="${ZSH_VERSION:+nocorrect} cp -i"
 alias mv="${ZSH_VERSION:+nocorrect} mv -i"
 alias mkdir="${ZSH_VERSION:+nocorrect} mkdir"
-
 alias du='du -h'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# vim
+KEYTIMEOUT=1
 
 autoload -U compinit
 compinit -u
