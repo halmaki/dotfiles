@@ -32,8 +32,6 @@ zplug "chrissicool/zsh-256color"
 
 # local plugins
 zplug "~/.zsh", from:local
-
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -41,11 +39,10 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
-
 zplug load
 
+## fzf
 source <(fzf --zsh)
-
 if [[ -n "$TMUX" ]]; then
   export FZF_DEFAULT_OPTS="--style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}' --tmux 80%"
 
@@ -73,7 +70,6 @@ setopt auto_pushd
 setopt share_history
 setopt hist_reduce_blanks
 setopt hist_ignore_all_dups
-
 
 # -----------------------------------
 # その他の設定
