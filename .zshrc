@@ -47,6 +47,9 @@ else
   export FZF_DEFAULT_OPTS="--style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 fi
 
+# -----------------------------------
+# エイリアス設定
+# -----------------------------------
 alias ll='ls -alG'
 alias cp="${ZSH_VERSION:+nocorrect} cp -i"
 alias mv="${ZSH_VERSION:+nocorrect} mv -i"
@@ -55,6 +58,7 @@ alias du='du -h'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias gm='gomi' # b4b4r07/gomi
 
 # vim
 KEYTIMEOUT=1
