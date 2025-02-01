@@ -1,14 +1,20 @@
-# zsh-completions
-fpath=(/opt/homebrew/share/zsh-completions $fpath)
-# zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-## dark mode
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-# zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# nodebrew path
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# -----------------------------------
+# PATH設定
+# -----------------------------------
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /Library/Apple/usr/bin
+  ~/bin
+)
+eval "$(/opt/homebrew/bin/mise activate zsh)" # mise
 
 # -----------------------------------
 # Zshプラグイン設定
@@ -60,8 +66,19 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias gm='gomi' # b4b4r07/gomi
 
-# vim
-KEYTIMEOUT=1
+# -----------------------------------
+# setopt
+# -----------------------------------
+setopt auto_pushd
+setopt share_history
+setopt hist_reduce_blanks
+setopt hist_ignore_all_dups
+
+
+# -----------------------------------
+# その他の設定
+# -----------------------------------
+KEYTIMEOUT=1  # vim
 
 autoload -U compinit
 compinit -u
