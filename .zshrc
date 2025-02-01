@@ -38,6 +38,15 @@ fi
 
 zplug load
 
+source <(fzf --zsh)
+
+if [[ -n "$TMUX" ]]; then
+  export FZF_DEFAULT_OPTS="--style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}' --tmux 80%"
+
+else
+  export FZF_DEFAULT_OPTS="--style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+fi
+
 alias ll='ls -alG'
 alias cp="${ZSH_VERSION:+nocorrect} cp -i"
 alias mv="${ZSH_VERSION:+nocorrect} mv -i"
